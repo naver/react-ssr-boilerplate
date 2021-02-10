@@ -1,0 +1,10 @@
+{
+  "ignore": ["client", "public"],
+  "watch": ["src", "../common/src"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "delay": "500",
+  "ext": "ts js",
+  "exec": "ts-node"
+}
