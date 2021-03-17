@@ -8,6 +8,7 @@ import path from 'path';
 import express from 'express';
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
+import expressStaticGzip from 'express-static-gzip';
 import { constants } from 'http2';
 import {
   ApolloClient,
@@ -27,7 +28,7 @@ const relativePublicPath = '../../public';
 const serverAssetPath = '/dist/node';
 const clientAssetPath = '/dist/web';
 
-app.use(express.static(path.join(__dirname, relativePublicPath)));
+app.use('/', expressStaticGzip(path.join(__dirname, relativePublicPath)));
 
 if (development) {
   /* eslint-disable global-require, import/no-extraneous-dependencies */

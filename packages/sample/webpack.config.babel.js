@@ -5,12 +5,14 @@ MIT license
  */
 
 import path from 'path';
+import { EnvironmentPlugin } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 import LoadablePlugin from '@loadable/webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import SpritesmithPlugin from 'webpack-spritesmith';
+import CompressionPlugin from 'compression-webpack-plugin';
 
 const DIST_PATH = path.resolve(__dirname, 'public/dist');
 const development = process.env.NODE_ENV === 'development';
@@ -140,7 +142,11 @@ const getConfig = target => ({
       chunkFilename: development ? '[id].css' : '[id]-[chunkhash:8].css',
     }),
     new CaseSensitivePathsPlugin(),
+    new CompressionPlugin(),
     new CleanWebpackPlugin(),
+    new EnvironmentPlugin({
+      NODE_ENV: 'development',
+    }),
     ...spritePlugins,
   ],
 });
