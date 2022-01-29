@@ -3,7 +3,6 @@ react-ssr-boilerplate
 Copyright 2021-present NAVER Corp.
 MIT license
  */
-
 function isWebTarget(caller) {
   return Boolean(caller && caller.target === 'web');
 }
@@ -36,13 +35,10 @@ module.exports = api => {
       '@loadable/babel-plugin',
       '@babel/plugin-proposal-class-properties',
       [
-        'module-resolver',
+        '@babel/plugin-transform-runtime',
         {
-          root: ['../..'],
-          alias: {
-            '@react-ssr-boilerplate/common': '../common',
-          },
-        },
+          corejs: 3,
+        }
       ],
     ],
   };

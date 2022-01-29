@@ -3,7 +3,6 @@ react-ssr-boilerplate
 Copyright 2021-present NAVER Corp.
 MIT license
  */
-
 import path from 'path';
 import { EnvironmentPlugin } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
@@ -56,13 +55,14 @@ const makeSprite = dirName => {
   });
 };
 
-// you can add sprite image source dir in this array
-const spritePlugins = ['list'].map(dir => makeSprite(dir));
+const spritePlugins = ['main', 'modal', 'list', 'searchBox'].map(dir =>
+  makeSprite(dir),
+);
 
 const getConfig = target => ({
   name: target,
-  mode: development ? 'development' : 'production',
-  target,
+  mode: 'none',
+  target: [target, 'es5'],
   entry: `./src/client/main-${target}.js`,
   module: {
     rules: [
@@ -113,11 +113,7 @@ const getConfig = target => ({
     target === 'node'
       ? [
           '@loadable/component',
-          nodeExternals({
-            additionalModuleDirs: [
-              path.resolve(__dirname, '../../node_modules'),
-            ],
-          }),
+          nodeExternals(),
         ]
       : undefined,
 

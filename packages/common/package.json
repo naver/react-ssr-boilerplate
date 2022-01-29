@@ -1,8 +1,0 @@
-{
-  "name": "@react-ssr-boilerplate/common",
-  "private": true,
-  "version": "1.0.0",
-  "dependencies": {
-    "react": "^17.0.1"
-  }
-}

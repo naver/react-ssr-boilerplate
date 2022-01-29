@@ -6,8 +6,8 @@ MIT license
 
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import Loading from '@react-ssr-boilerplate/common/src/component/Loading';
-import Error from '@react-ssr-boilerplate/common/src/component/Error';
+import Loading from '../common/Loading';
+import Error from '../common/Error';
 import { LAUNCHES_PAST, ILaunchesPastResult } from '../../query/spaceX';
 import Item from './Item';
 
@@ -38,7 +38,7 @@ function List(props: IProp) {
   const { launchesPast } = data;
 
   return (
-    <body>
+    <>
       <h1>Hello {title || 'SpaceX'}</h1>
       <table>
         <thead>
@@ -54,7 +54,7 @@ function List(props: IProp) {
           ))}
         </tbody>
       </table>
-    </body>
+    </>
   );
 }
 

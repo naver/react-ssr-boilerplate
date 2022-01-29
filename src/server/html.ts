@@ -37,7 +37,7 @@ const getFullHtml = ({
     ${webExtractor.getStyleTags()}
     </head>
     <body>
-      <div id="main">${html}</div>
+      <div id="app">${html}</div>
       ${webExtractor.getScriptTags()}
     </body>
   </html>`;
