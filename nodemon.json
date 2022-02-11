@@ -1,6 +1,6 @@
 {
   "ignore": ["client", "public"],
-  "watch": ["src", "../common/src"],
+  "watch": ["src"],
   "env": {
     "NODE_ENV": "development"
   },

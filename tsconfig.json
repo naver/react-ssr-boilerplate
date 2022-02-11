@@ -8,6 +8,10 @@
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "allowJs": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
